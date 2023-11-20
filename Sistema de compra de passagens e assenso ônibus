@@ -1,0 +1,176 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int verificacao(int vetor[], int posicao){
+	
+	if(vetor[posicao]==0){
+		printf("Venda bem Sucedida");
+		vetor[posicao] =1;
+		return 0;
+	}
+	else{
+			printf("Ja Vendido Anteriormente");
+		return 1;
+	}
+	
+	
+}
+
+int compradeassentos(){
+	int dnv;
+	printf("\nDeseja comprar mais algum assento? (0=Sim 1=Nao)\n");
+    scanf("%d", &dnv);
+	return dnv;		
+			
+	
+}
+
+int rotas(int vetor[]){
+	int squal, assento;
+	int qual,dnv;
+    int i;
+	printf("Qual cidade voce mora?\n1- Salvador\n2- Feira de Santana\n3- Juazeiro\n");
+	scanf("%d", &qual);
+	
+	switch(qual){
+		
+		case 1: 
+		printf("Qual seu destino?\n1-Feira de Santana\n2-Juazeiro\n"); 
+		scanf("%d", &squal);
+		if(squal==1){
+			printf("OBA VAMOS PARA FEIRA DE SANTANA\n");
+			do{
+			
+			printf("Qual assento quer comprar? (0 a 45)");
+			scanf("%d", &assento);
+			
+			if(verificacao(vetor, assento)==0){
+				vetor[assento] =1;
+			}
+			
+		i=compradeassentos(dnv);
+		if(i==1){
+			printf("COMPRA FINALIZADA");
+		}
+		
+		}while(i==0);
+		}
+		else if(squal==2){
+			printf("OBA VAMOS PARA JUAZEIRO\n");
+			do{
+			printf("Qual assento quer comprar? (0 a 45)");
+			scanf("%d", &assento);
+			
+			if(verificacao(vetor, assento)==0){
+				vetor[assento] =1;
+			}
+			i=compradeassentos(dnv);
+		if(i==1){
+			printf("COMPRA FINALIZADA");
+		}
+		
+		}while(i==0);	
+		}
+	    
+		break;
+		case 2: 
+		printf("Qual seu destino?\n1-Salvador\n2-Juazeiro\n"); 
+		scanf("%d", &squal);
+		if(squal==1){
+			printf("OBA VAMOS PARA SALVADOR\n");
+			do{
+			
+			printf("Qual assento quer comprar? (0 a 45)");
+			scanf("%d", &assento);
+			
+			if(verificacao(vetor, assento)==0){
+				vetor[assento] =1;
+			}
+			
+		i=compradeassentos(dnv);
+		if(i==1){
+			printf("COMPRA FINALIZADA");
+		}
+		
+		}while(i==0);
+		}
+		else if(squal==2){
+			printf("OBA VAMOS PARA JUAZEIRO\n");
+			do{
+			printf("Qual assento quer comprar? (0 a 45)");
+			scanf("%d", &assento);
+			
+			if(verificacao(vetor, assento)==0){
+				vetor[assento] =1;
+			}
+		i=compradeassentos(dnv);
+		if(i==1){
+			printf("COMPRA FINALIZADA");
+		}
+		
+		}while(i==0);
+		}
+		
+		break;
+		case 3: 
+		printf("Qual seu destino?\n1-Salvador\n2-Feira de Santana"); 
+		scanf("%d", &squal);
+		if(squal==1){
+			printf("OBA VAMOS PARA SALVADOR\n");
+			do{
+			
+			printf("Qual assento quer comprar? (0 a 45)");
+			scanf("%d", &assento);
+			
+			if(verificacao(vetor, assento)==0){
+				vetor[assento] =1;
+			}
+		i=compradeassentos(dnv);
+		if(i==1){
+			printf("COMPRA FINALIZADA");
+		}
+		
+		}while(i==0);
+		}
+		else if(squal==2){
+			printf("OBA VAMOS PARA FEIRA DE SANTANA\n");
+			do{
+			
+			printf("Qual assento quer comprar? (0 a 45)");
+			scanf("%d", &assento);
+			
+			if(verificacao(vetor, assento)==0){
+				vetor[assento] =1;
+			}
+			i=compradeassentos(dnv);
+		if(i==1){
+			printf("COMPRA FINALIZADA");
+		}
+		
+		}while(i==0);
+		}
+		
+		default: printf("Opcao Invalida");
+		break;
+	}
+	
+}
+
+
+int main(int argc, char *argv[]) {
+	int vetor[5][45];
+	int i =0;
+	int ii=0;
+	while(i<6){
+		while(ii<46){
+		vetor[i][ii] =0;
+		ii++;
+	}
+	i++;
+	}
+	
+	rotas(vetor);
+
+	
+	return 0;
+}
